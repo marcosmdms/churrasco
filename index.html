@@ -6,52 +6,15 @@
 </head>
 <body>
   <h1>Calculadora de Churrasco</h1>
-  <button onclick="rodarCalculadora()">Iniciar Calculo</button>
+  <button onclick="churrasco()">Iniciar Calculo</button>
 
   <script>
-    function calcularItens(totalPessoas, pessoasPorUnidade) {
-      if (totalPessoas % pessoasPorUnidade === 0) {
-        return totalPessoas / pessoasPorUnidade;
-      }
-      return (totalPessoas - (totalPessoas % pessoasPorUnidade)) / pessoasPorUnidade + 1;
-    }
-
-    function rodarCalculadora() {
-      while (true) {
-        const pergunta = prompt("Quantas pessoas vao participar do churrasco?");
-
-        if (pergunta === null) {
-          if (confirm("Tem certeza que deseja cancelar?")) {
-            break;
-          } else {
-            continue;
-          }
-        }
-
-        const pessoas = Number(pergunta);
-
-        if (pergunta === "" || isNaN(pessoas) || pessoas <= 0) {
-          alert("Por favor, digite um numero valido de pessoas!");
-          continue;
-        }
-
-        const carneGramas = pessoas * 400;
-        const carneKg = carneGramas / 1000;
-        const farofaGramas = pessoas * 100;
-        const farofaKg = farofaGramas / 1000;
-
-        const carvaoKg = calcularItens(pessoas, 5);
-        const refrigeranteGarrafas = calcularItens(pessoas, 4);
-
-        const resultado = 'Lista de Compras - Churrasco para ' + pessoas + ' pessoas\n' +
-        'Carne: ' + carneKg + 'kg (' + carneGramas + 'g)\n' +
-        'Farofa: ' + farofaKg + 'kg (' + farofaGramas + 'g)\n' +
-        'Carvao: ' + carvaoKg + 'kg\n' +
-        'Refrigerante: ' + refrigeranteGarrafas + ' garrafas de 2L';
-
-        alert(resultado);
-        break;
-      }
+    function churrasco(){
+      const p = prompt('Quantas pessoas vao participar do churrasco?');
+      if(p === null) return;
+      const n = +p;
+      if(!(n > 0)) return alert('Por favor, digite um numero valido de pessoas!'), churrasco();
+      alert('Lista de Compras - Churrasco para '+n+' pessoas\nCarne: '+n*0.4+'kg ('+n*400+'g)\nFarofa: '+n*0.1+'kg ('+n*100+'g)\nCarvao: '+Math.ceil(n/5)+'kg\nRefrigerante: '+Math.ceil(n/4)+' garrafas de 2L');
     }
   </script>
 </body>
