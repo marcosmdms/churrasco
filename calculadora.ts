@@ -1,3 +1,4 @@
+// Feita de uma forma mais didática e simples 
 // Função que calcula quantos itens precisa
 // Ela espera receber o total de pessoas e quantas pessoas cada unidade serve
 function calcularItens(totalPessoas: number, pessoasPorUnidade: number): number {
