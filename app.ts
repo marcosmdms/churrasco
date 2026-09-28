@@ -11,7 +11,7 @@ function churrasco(): void {
     return churrasco();
   }
 
-  // Converte o texto pra número
+  // Converte o texto pra número  
   const n = +p;
 
   // Valida: se não for maior que 0 (pega vazio, 0, negativo e NaN)
